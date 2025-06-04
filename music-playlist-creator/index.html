@@ -5,21 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <title>Music Playlist Explorer</title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
     
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <!-- Your header content here -->
+    <header id="banner">
+        <h1>Music Playlist Explorer</h1>
     </header>
 
     <main> 
-        <!-- Your main content here -->
+        <section class="playlist-cards">
+            <section class="playlist-card">
+                <img class="playlist-cover-art" src="assets/img/playlist.png" alt="Playlist cover" width="175px">
+                <h2 class="playlist-title">Smooth Jazz</h2>
+                <p class="playlist-creator-name">Jerry Benson</p>
+                <div class="playlist-likes-container">
+                    <img class="playlist-heart-icon" src="assets/img/favicon.ico" alt="" width="20px">
+                    <p class="playlist-number-of-likes">5</p>
+                </div>
+            </section>
+        </section>
     </main>
 
     <footer>
-        <!-- Your footer content here -->
+        
     </footer>
     <script src="data/data.js"></script>
     <script src="script.js"></script>
