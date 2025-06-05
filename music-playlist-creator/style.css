@@ -10,7 +10,7 @@ footer {
     width: auto;
     background-color:rgb(181, 181, 181);
 
-    border-top: 4px solid black;
+    border-top: 2px solid black;
 }
 
 #banner {
@@ -22,7 +22,7 @@ footer {
 
     text-indent: 40px;
 
-    border-bottom: 4px solid black;
+    border-bottom: 2px solid black;
 }
 
 h1 {
