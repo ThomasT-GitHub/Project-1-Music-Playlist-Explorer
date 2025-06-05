@@ -5,6 +5,14 @@ body {
     background-color: #f8f8f8;
 }
 
+footer {
+    height: 5%;
+    width: auto;
+    background-color:rgb(181, 181, 181);
+
+    border-top: 4px solid black;
+}
+
 #banner {
     width: auto;
     
@@ -14,7 +22,7 @@ body {
 
     text-indent: 40px;
 
-    border-bottom: 5px solid black;
+    border-bottom: 4px solid black;
 }
 
 h1 {
