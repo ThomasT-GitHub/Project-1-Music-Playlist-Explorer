@@ -1,3 +1,4 @@
+// Populates the website with the playlists in data.js
 const playlistCards = document.getElementsByClassName("playlist-cards")[0];
 
 playlistsData.forEach((playlist) => {
@@ -16,6 +17,43 @@ playlistsData.forEach((playlist) => {
 
     `
     );
+});
+
+// Handles logic for linking a playlist
+// Gathers all the like containers to process heart icons and number of likes in pairs
+const likesContainer = Array.from(document.getElementsByClassName("playlist-likes-container"));
+likesContainer.forEach((likeContainer) => {
+    const heartIcon = likeContainer.getElementsByClassName("playlist-heart-icon")[0];
+    const likeCounter = likeContainer.getElementsByClassName("playlist-number-of-likes")[0];
+    
+    heartIcon.addEventListener('click', (event) => {
+        // Swaps the heart emojis
+        if (heartIcon.innerText === "❤️") {
+            heartIcon.innerText = "♡"
+            likeCounter.innerText = parseInt(likeCounter.innerText) - 1;
+        }
+        
+        else if (heartIcon.innerText === "♡") {
+            heartIcon.innerText = "❤️"
+            likeCounter.innerText = parseInt(likeCounter.innerText) + 1;
+        }
+        
+        event.stopImmediatePropagation(); // Keeps the modal from opening when the like button is pressed
+    });
+
+    heartIcon.addEventListener('mouseover', (event) => {
+        heartIcon.style.transform = 'scale(1.5,1.5)';
+        
+        event.stopImmediatePropagation(); // Keeps the modal from opening when the like button is pressed
+    });
+
+    heartIcon.addEventListener('mouseout', (event) => {
+        heartIcon.style.transform = 'scale(1,1)';
+
+        heartIcon.getElement
+        
+        event.stopImmediatePropagation(); // Keeps the modal from opening when the like button is pressed
+    });
 });
 
 // JavaScript for Opening and Closing the Modal
