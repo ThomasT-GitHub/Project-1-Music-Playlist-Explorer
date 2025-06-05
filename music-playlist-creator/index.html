@@ -18,45 +18,6 @@
 
     <main>
         <section class="playlist-cards">
-            <section class="playlist-card" onclick="openModal({name: 'Test', creatorName: 'Tom', imageUrl: 'assets/img/favicon.ico'})">
-                <img class="playlist-cover-art" src="assets/img/playlist.png" alt="Playlist cover" width="175px">
-                <h2 class="playlist-title">Smooth Jazz</h2>
-                <p class="playlist-creator-name">Jerry Benson</p>
-                <div class="playlist-likes-container">
-                    <img class="playlist-heart-icon" src="assets/img/favicon.ico" alt="" width="20px" height="20px">
-                    <p class="playlist-number-of-likes">5</p>
-                </div>
-            </section>
-
-            <section class="playlist-card">
-                <img class="playlist-cover-art" src="assets/img/playlist.png" alt="Playlist cover" width="175px">
-                <h2 class="playlist-title">Smooth Jazz</h2>
-                <p class="playlist-creator-name">Jerry Benson</p>
-                <div class="playlist-likes-container">
-                    <img class="playlist-heart-icon" src="assets/img/favicon.ico" alt="" width="20px" height="20px">
-                    <p class="playlist-number-of-likes">5</p>
-                </div>
-            </section>
-
-            <section class="playlist-card">
-                <img class="playlist-cover-art" src="assets/img/playlist.png" alt="Playlist cover" width="175px">
-                <h2 class="playlist-title">Smooth Jazz</h2>
-                <p class="playlist-creator-name">Jerry Benson</p>
-                <div class="playlist-likes-container">
-                    <img class="playlist-heart-icon" src="assets/img/favicon.ico" alt="" width="20px" height="20px">
-                    <p class="playlist-number-of-likes">5</p>
-                </div>
-            </section>
-
-            <section class="playlist-card">
-                <img class="playlist-cover-art" src="assets/img/playlist.png" alt="Playlist cover" width="175px">
-                <h2 class="playlist-title">Smooth Jazz</h2>
-                <p class="playlist-creator-name">Jerry Benson</p>
-                <div class="playlist-likes-container">
-                    <img class="playlist-heart-icon" src="assets/img/favicon.ico" alt="" width="20px" height="20px">
-                    <p class="playlist-number-of-likes">5</p>
-                </div>
-            </section>
         </section>
     </main>
 
@@ -68,15 +29,15 @@
         <div class="modal-content">
             <span class="close">&times;</span>
             <img id="playlist-image" src="assets/img/playlist.png" alt="Playlist Image">
-            <h1 id="playlist-name">Smooth Jazz</h1>
-            <p id="playlist-creator-name">Jerry Benson</p>
+            <h1 id="playlist-name"></h1>
+            <p id="playlist-creator-name"></p>
             <div id="songs-container">
                 <ul id="songs-list">
-                    <li>Harmonics</li>
                 </ul>
             </div>
         </div>
     </div>
+
     <script src="data/data.js"></script>
     <script src="script.js"></script>
 </body>
