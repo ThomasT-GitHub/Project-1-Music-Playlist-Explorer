@@ -42,6 +42,7 @@ if (window.location.pathname.endsWith("index.html")) {
                 <h2 class="playlist-title">${playlist.playlist_name}</h2>
                 <p class="playlist-creator-name">${playlist.playlist_author}</p>
                 <button class="playlist-delete-button">🗑️ Delete</button>
+                <button class="playlist-edit-button">✏️ Edit</button>
                 <div class="playlist-likes-container">
                     <p class="playlist-heart-icon">♡</p>
                     <p class="playlist-number-of-likes">${playlist.likes}</p>
@@ -96,6 +97,36 @@ if (window.location.pathname.endsWith("index.html")) {
         });
     });
 
+    // Handles logic for editing a playlist
+    const editButtons = Array.from(document.getElementsByClassName("playlist-edit-button"));
+    const editModal = document.getElementById("playlist-edit-modal");
+
+    let playlistTitle;
+    let playlistAuthor;
+
+    editButtons.forEach((button) => {
+        button.addEventListener("click", (event) => {
+            playlistTitle = button.previousElementSibling.previousElementSibling.previousElementSibling;
+            playlistAuthor = button.previousElementSibling.previousElementSibling;
+            editModal.style.display = "block";
+
+            event.stopImmediatePropagation(); // Keeps the playlist view modal from opening when the like button is pressed
+        });
+    });
+
+    const playlistEditForm = document.getElementById("playlist-edit-form");
+    playlistEditForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const title = document.getElementById("form-playlist-title").value;
+        const author = document.getElementById("form-playlist-author").value;
+        console.log(title);
+
+        playlistTitle.innerText = title;
+        playlistAuthor.innerText = author;
+
+    })
+
     // Handles logic for shuffling a playlist
     const shuffleButton = document.getElementById("playlist-shuffle-button");
     shuffleButton.addEventListener('click', () => {
@@ -124,7 +155,7 @@ if (window.location.pathname.endsWith("index.html")) {
 
     // JavaScript for Opening and Closing the Modal
     const modal = document.getElementById("playlist-modal");
-    const span = document.getElementsByClassName("close")[0];
+    const spans = Array.from(document.getElementsByClassName("close"));
 
     function openModal(playlist) {
         document.getElementById("songs-list").innerText = "";
@@ -151,12 +182,18 @@ if (window.location.pathname.endsWith("index.html")) {
         modal.style.display = "block";
     }
 
-    span.onclick = function () {
-        modal.style.display = "none";
-    };
+    spans.forEach((span) => {
+        span.addEventListener("click", () => {
+            span.parentElement.parentElement.style.display = "none";
+        })
+    })
     window.onclick = function (event) {
         if (event.target == modal) {
             modal.style.display = "none";
+        }
+
+        if (event.target == editModal) {
+            editModal.style.display = "none";
         }
     };
 }
