@@ -16,6 +16,10 @@ footer {
 #banner {
     width: auto;
 
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
     padding: 1%;
 
     background-color: rgb(181, 181, 181);
@@ -27,6 +31,10 @@ footer {
 
 h1 {
     margin: 0;
+}
+
+.navigation-links {
+    justify-self: right;
 }
 
 /* CSS for playlist cards */
@@ -121,7 +129,14 @@ h1 {
    text-decoration: none;
    cursor: pointer;
 }
-.modal-song-widget {
+#modal-song-information-container {
+    display: flex;
+    flex-direction: column;
+
+    padding: 8px;
+    padding-right: 32px;
+}
+#modal-song-widget {
     background-color: rgb(207, 207, 207);
 
     border-radius: 16px;
@@ -142,4 +157,56 @@ h1 {
     border-radius: 16px;
 
     cursor: pointer;
+}
+#modal-playlist-song-duration {
+    justify-self: right;
+}
+
+/* Styling for featured page */
+#featured-playlist-container {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: center;
+    align-items: center;
+}
+
+#featured-playlist-card {
+    width: fit-content;
+    height: fit-content;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#featured-playlist-cover {
+    border-radius: 16px;
+}
+
+#featured-playlist-song-widget {
+    background-color: rgb(207, 207, 207);
+
+    border-radius: 16px;
+    margin: 8px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    list-style-type: none;
+}
+
+#featured-playlist-song-information-container {
+    display: flex;
+    flex-direction: column;
+
+    padding: 8px;
+    padding-right: 32px;
+}
+
+#featured-playlist-song-cover {
+    border-radius: 16px;
+}
+#featured-playlist-song-duration {
+    justify-self: right;
 }

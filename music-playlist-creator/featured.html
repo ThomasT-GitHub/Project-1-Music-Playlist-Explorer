@@ -19,27 +19,22 @@
     </header>
 
     <main>
-        <section class="playlist-cards">
+        <section id="featured-playlist-container">
+            <section id="featured-playlist-card">
+                <img id="featured-playlist-cover" src="https://picsum.photos/500?random=1" alt="">
+                <h2 id="featured-playlist-title">Playlist Title</h2>
+                <p id="featured-playlist-author">Playlist author</p>
+            </section>
+            <section id="featured-playlist-song-list">
+                <ul id="featured-songs-list">
+                </ul>
+            </section>
         </section>
     </main>
 
     <footer>
         <br>
     </footer>
-
-    <div id="playlist-modal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <img id="playlist-image" src="assets/img/playlist.png" alt="Playlist Image">
-            <h1 id="playlist-name"></h1>
-            <p id="playlist-creator-name"></p>
-            <button id="playlist-shuffle-button">Shuffle!</button>
-            <div id="songs-container">
-                <ul id="songs-list">
-                </ul>
-            </div>
-        </div>
-    </div>
 
     <script src="data/data.js"></script>
     <script src="script.js"></script>
