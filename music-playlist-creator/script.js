@@ -55,77 +55,104 @@ if (window.location.pathname.endsWith("index.html")) {
     // Handles logic for liking a playlist
     // Gathers all the like containers to process heart icons and number of likes in pairs
     const likesContainer = Array.from(document.getElementsByClassName("playlist-likes-container"));
-    likesContainer.forEach((likeContainer) => {
-        const heartIcon = likeContainer.getElementsByClassName("playlist-heart-icon")[0];
-        const likeCounter = likeContainer.getElementsByClassName("playlist-number-of-likes")[0];
-
-        heartIcon.addEventListener('click', (event) => {
-            // Swaps the heart emojis
-            if (heartIcon.innerText === "❤️") {
-                heartIcon.innerText = "♡"
-                likeCounter.innerText = parseInt(likeCounter.innerText) - 1;
-            }
-
-            else if (heartIcon.innerText === "♡") {
-                heartIcon.innerText = "❤️"
-                likeCounter.innerText = parseInt(likeCounter.innerText) + 1;
-            }
-
-            event.stopImmediatePropagation(); // Keeps the modal from opening when the like button is pressed
-        });
-
-        heartIcon.addEventListener('mouseover', (event) => {
-            heartIcon.style.transform = 'scale(1.5,1.5)';
-
-            event.stopImmediatePropagation(); // Keeps the modal from opening when the like button is pressed
-        });
-
-        heartIcon.addEventListener('mouseout', (event) => {
-            heartIcon.style.transform = 'scale(1,1)';
-
-            event.stopImmediatePropagation(); // Keeps the modal from opening when the like button is pressed
-        });
-    });
+    addLikesListner(likesContainer);
 
     // Handles logic for deleting a playlist
     const deleteButtons = Array.from(document.getElementsByClassName("playlist-delete-button"));
-    deleteButtons.forEach((button) => {
-        button.addEventListener("click", (event) => {
-            button.parentElement.remove();
-
-            event.stopImmediatePropagation(); // Keeps the modal from opening when the like button is pressed
-        });
-    });
+    addDeleteListners(deleteButtons);
 
     // Handles logic for editing a playlist
     const editButtons = Array.from(document.getElementsByClassName("playlist-edit-button"));
     const editModal = document.getElementById("playlist-edit-modal");
 
-    let playlistTitle;
-    let playlistAuthor;
+    var playlistTitle;
+    var playlistAuthor;
 
-    editButtons.forEach((button) => {
-        button.addEventListener("click", (event) => {
-            playlistTitle = button.previousElementSibling.previousElementSibling.previousElementSibling;
-            playlistAuthor = button.previousElementSibling.previousElementSibling;
-            editModal.style.display = "block";
-
-            event.stopImmediatePropagation(); // Keeps the playlist view modal from opening when the like button is pressed
-        });
-    });
+    addEditButton(editButtons);
 
     const playlistEditForm = document.getElementById("playlist-edit-form");
     playlistEditForm.addEventListener("submit", (event) => {
         event.preventDefault();
 
-        const title = document.getElementById("form-playlist-title").value;
-        const author = document.getElementById("form-playlist-author").value;
-        console.log(title);
+        const title = document.getElementById("form-edit-playlist-title").value;
+        const author = document.getElementById("form-edit-playlist-author").value;
 
         playlistTitle.innerText = title;
         playlistAuthor.innerText = author;
 
-    })
+    });
+
+    // Handles logic for adding a playlist
+    const addPlaylistButton = document.getElementById("add-playlist-button");
+    const addModal = document.getElementById("playlist-add-modal");
+
+    addPlaylistButton.addEventListener("click", () => {
+        addModal.style.display = "block";
+    });
+
+    const playlistAddForm = document.getElementById("playlist-add-form");
+    playlistAddForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const title = document.getElementById("form-add-playlist-title").value;
+        const author = document.getElementById("form-add-playlist-author").value;
+        const songs = Array.from(document.getElementsByClassName("playlist-add-song-container"));
+
+        songsJSONFormat = songs.map((song) => {
+            return {
+                        'title': song.getElementsByClassName("playlist-add-song-title")[0].value,
+                        'author': song.getElementsByClassName("playlist-add-song-author")[0].value,
+                        'cover_image': 'https://picsum.photos/100?random=' + Math.floor(Math.random() * 100),
+                        'duration': '4:00'
+                    };
+        });
+
+        playlistCards.insertAdjacentHTML(
+            "afterbegin",
+            `
+            <section class="playlist-card" onclick="openModal({name: '${title}', creatorName: '${author}', imageUrl: 'https://picsum.photos/100?random=48', songs: ${JSON.stringify(songsJSONFormat).replace(/"/g, "'")}})">
+                <img class="playlist-cover-art" src="https://picsum.photos/100?random=48" alt="Playlist cover" width="200px">
+                <h2 class="playlist-title">${title}</h2>
+                <p class="playlist-creator-name">${author}</p>
+                <button class="playlist-delete-button">🗑️ Delete</button>
+                <button class="playlist-edit-button">✏️ Edit</button>
+                <div class="playlist-likes-container">
+                    <p class="playlist-heart-icon">♡</p>
+                    <p class="playlist-number-of-likes">0</p>
+                </div>
+            </section>
+            `
+        );
+
+        const newDelButton = [playlistCards.getElementsByClassName("playlist-delete-button")[0]];
+        const newEditButton = [playlistCards.getElementsByClassName("playlist-edit-button")[0]];
+        const heartButton = [playlistCards.getElementsByClassName("playlist-likes-container")[0]];
+
+        addDeleteListners(newDelButton);
+        addEditButton(newEditButton);
+        addLikesListner(heartButton);
+
+    });
+
+    const playlistAddMoreSongFields = document.getElementById("playlist-add-song-add-more-songs-button");
+    playlistAddMoreSongFields.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        const songEntry = document.createElement('div');
+        songEntry.innerHTML =`
+                <div class="playlist-add-song-container">
+                    <label for="playlist-add-form">Song Title</label>
+                    <input type="text" class="playlist-add-song-title">
+                    <label for="playlist-add-form"></label>Song Artist</label>
+                    <input type="text" class="playlist-add-song-author">
+                </div>
+        `;
+
+        playlistAddMoreSongFields.parentElement.insertBefore(
+            songEntry,
+            playlistAddMoreSongFields
+        );
+    });
 
     // Handles logic for shuffling a playlist
     const shuffleButton = document.getElementById("playlist-shuffle-button");
@@ -195,5 +222,71 @@ if (window.location.pathname.endsWith("index.html")) {
         if (event.target == editModal) {
             editModal.style.display = "none";
         }
+
+        if (event.target == addModal) {
+            addModal.style.display = "none";
+        }
+
     };
+}
+
+// HELPER FUNCTIONS
+
+function addLikesListner(likesContainer) {
+    likesContainer.forEach((likeContainer) => {
+        const heartIcon = likeContainer.getElementsByClassName("playlist-heart-icon")[0];
+        const likeCounter = likeContainer.getElementsByClassName("playlist-number-of-likes")[0];
+
+        heartIcon.addEventListener('click', (event) => {
+            // Swaps the heart emojis
+            if (heartIcon.innerText === "❤️") {
+                heartIcon.innerText = "♡"
+                likeCounter.innerText = parseInt(likeCounter.innerText) - 1;
+            }
+
+            else if (heartIcon.innerText === "♡") {
+                heartIcon.innerText = "❤️"
+                likeCounter.innerText = parseInt(likeCounter.innerText) + 1;
+            }
+
+            event.stopImmediatePropagation(); // Keeps the modal from opening when the like button is pressed
+        });
+
+        heartIcon.addEventListener('mouseover', (event) => {
+            heartIcon.style.transform = 'scale(1.5,1.5)';
+
+            event.stopImmediatePropagation(); // Keeps the modal from opening when the like button is pressed
+        });
+
+        heartIcon.addEventListener('mouseout', (event) => {
+            heartIcon.style.transform = 'scale(1,1)';
+
+            event.stopImmediatePropagation(); // Keeps the modal from opening when the like button is pressed
+        });
+    });
+}
+
+function addDeleteListners(deleteButtons) {
+    deleteButtons.forEach((button) => {
+        button.addEventListener("click", (event) => {
+            button.parentElement.remove();
+
+            event.stopImmediatePropagation(); // Keeps the modal from opening when the like button is pressed
+        });
+    });
+}
+
+function addEditButton(editButtons) {
+    const editModal = document.getElementById("playlist-edit-modal");
+
+    editButtons.forEach((button) => {
+        button.addEventListener("click", (event) => {
+
+            playlistTitle = button.previousElementSibling.previousElementSibling.previousElementSibling;
+            playlistAuthor = button.previousElementSibling.previousElementSibling;
+            editModal.style.display = "block";
+
+            event.stopImmediatePropagation(); // Keeps the playlist view modal from opening when the like button is pressed
+        });
+    });
 }

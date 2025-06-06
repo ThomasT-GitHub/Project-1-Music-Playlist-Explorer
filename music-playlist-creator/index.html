@@ -16,6 +16,7 @@
         <h1>Music Playlist Explorer</h1>
         <a class="navigation-links" href="index.html">All</a>
         <a class="navigation-links" href="featured.html">Featured</a>
+        <button id="add-playlist-button">Add Playlist</button>
     </header>
 
     <main>
@@ -46,9 +47,32 @@
             <span class="close">&times;</span>
             <form id="playlist-edit-form">
                 <label>Playlist Title:</label><br>
-                <input type="text" id="form-playlist-title" name="playlist-title"><br>
+                <input type="text" id="form-edit-playlist-title" name="playlist-title"><br>
                 <label>Playlist Author:</label><br>
-                <input type="text" id="form-playlist-author" name="playlist-author">
+                <input type="text" id="form-edit-playlist-author" name="playlist-author">
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+
+    <div id="playlist-add-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form id="playlist-add-form">
+                <label for="playlist-add-form">Playlist Title:</label><br>
+                <input type="text" id="form-add-playlist-title" name="playlist-title"><br>
+                <label for="playlist-add-form">Playlist Author:</label><br>
+                <input type="text" id="form-add-playlist-author" name="playlist-author">
+
+                <p>Songs</p>
+                <div class="playlist-add-song-container">
+                    <label for="playlist-add-form">Song Title</label>
+                    <input type="text" class="playlist-add-song-title">
+                    <label for="playlist-add-form"></label>Song Artist</label>
+                    <input type="text" class="playlist-add-song-author">
+                </div>
+                <button type="button" id="playlist-add-song-add-more-songs-button">Add more songs!</button>
+
                 <input type="submit" value="Submit">
             </form>
         </div>
