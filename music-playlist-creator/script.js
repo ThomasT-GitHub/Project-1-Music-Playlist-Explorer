@@ -41,17 +41,17 @@ if (window.location.pathname.endsWith("index.html")) {
                 <img class="playlist-cover-art" src="${playlist.playlist_art}" alt="Playlist cover" width="200px">
                 <h2 class="playlist-title">${playlist.playlist_name}</h2>
                 <p class="playlist-creator-name">${playlist.playlist_author}</p>
+                <button class="playlist-delete-button">🗑️ Delete</button>
                 <div class="playlist-likes-container">
                     <p class="playlist-heart-icon">♡</p>
                     <p class="playlist-number-of-likes">${playlist.likes}</p>
                 </div>
             </section>
-
-        `
+            `
         );
     });
 
-    // Handles logic for linking a playlist
+    // Handles logic for liking a playlist
     // Gathers all the like containers to process heart icons and number of likes in pairs
     const likesContainer = Array.from(document.getElementsByClassName("playlist-likes-container"));
     likesContainer.forEach((likeContainer) => {
@@ -81,6 +81,16 @@ if (window.location.pathname.endsWith("index.html")) {
 
         heartIcon.addEventListener('mouseout', (event) => {
             heartIcon.style.transform = 'scale(1,1)';
+
+            event.stopImmediatePropagation(); // Keeps the modal from opening when the like button is pressed
+        });
+    });
+
+    // Handles logic for deleting a playlist
+    const deleteButtons = Array.from(document.getElementsByClassName("playlist-delete-button"));
+    deleteButtons.forEach((button) => {
+        button.addEventListener("click", (event) => {
+            button.parentElement.remove();
 
             event.stopImmediatePropagation(); // Keeps the modal from opening when the like button is pressed
         });
