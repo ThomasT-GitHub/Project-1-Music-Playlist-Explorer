@@ -130,7 +130,7 @@ Deployed Application (**required**): [Music Playlist Explorer Deployed Site](htt
 
 ### Walkthrough Video
 
-https://www.loom.com/share/c538e8cbf1e14c1a88bbeaecadf9b1d2?sid=ec392337-491e-43bf-ad76-23ec23f2af98
+https://www.loom.com/share/c538e8cbf1e14c1a88bbeaecadf9b1d2?sid=c92d7f7b-82d8-4158-b371-933cbd526568
 
 ### Reflection
 
