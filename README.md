@@ -2,7 +2,7 @@
 
 Submitted by: **THOMAS TRIVINO**
 
-Estimated time spent: **12** hours spent in total
+Estimated time spent: **16** hours spent in total
 
 Deployed Application (**required**): [Music Playlist Explorer Deployed Site](https://project-1-music-playlist-explorer.onrender.com/index.html)
 
@@ -48,14 +48,14 @@ Deployed Application (**required**): [Music Playlist Explorer Deployed Site](htt
     - [x] If previously liked:
       - [x] The like count on the playlist tile should decrease by 1.
       - [x] There should be visual feedback (such as the heart turning a different color) to show that the playlist has been unliked by the user.
-    - [ ] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS:** In addition to showcasing the above features, for ease of grading, please film yourself liking and unliking:
-      - [ ] a playlist with a like count of 0
-      - [ ] a playlist with a non-zero like count
+    - [x] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS:** In addition to showcasing the above features, for ease of grading, please film yourself liking and unliking:
+      - [x] a playlist with a like count of 0
+      - [x] a playlist with a non-zero like count
 
 - [x] **Shuffle Songs**
   - [x] Enable users to shuffle the songs within a playlist using a shuffle button in the playlist's detail modal.
   - [x] When the shuffle button is clicked, the playlist's songs should display in a different order.
-  - [ ] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS:** In addition to showcasing the above features, for ease of grading, please show yourself shuffling the same playlist more than once.
+  - [x] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS:** In addition to showcasing the above features, for ease of grading, please show yourself shuffling the same playlist more than once.
 
 - [x] **Featured Page**
   - [x] Application includes a dedicated page that randomly selects and displays a playlist, showing the playlist’s:
@@ -68,22 +68,22 @@ Deployed Application (**required**): [Music Playlist Explorer Deployed Site](htt
   - [x] When the page is refreshed or reloaded, a new random playlist is displayed
     - For example, navigating to the all playlists page and then back to the featured playlist page should result in a new random playlist being displayed
     - Note that because your algorithm will not be truly random, it is possible that the same playlist will feature twice in a row.
-    - [ ] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS:** In addition to showcasing the above features, for ease of grading, please show yourself refreshing the featured page more than once.
+    - [x] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS:** In addition to showcasing the above features, for ease of grading, please show yourself refreshing the featured page more than once.
   - [x] Application includes a navigation bar or some other mechanism such that users can navigate to the page with all playlists from the featured page and vice versa without using the browser's back and forward buttons.
 
 #### STRETCH FEATURES
 
-- [ ] **Add New Playlists**
-  - [ ] Allow users to create new playlists.
+- [x] **Add New Playlists**
+  - [x] Allow users to create new playlists.
   - [x] Using a form, users can input playlist:
     - [x] Name
     - [x] Author
-    ~- [ ] Cover image~
+    - [x] Cover image
     - [x] Add one or more songs to the playlist, specifying the song's:
       - [x] Title
       - [x] Artist
   - [x] The resulting playlist should display in the grid view.
-  - [ ] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS:** For ease of grading, please show yourself adding at least two songs to the playlist.
+  - [x] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS:** For ease of grading, please show yourself adding at least two songs to the playlist.
 
 - [ ] **Edit Existing Playlists**
   - [x] Enable users to modify the details of existing playlists.
@@ -93,9 +93,9 @@ Deployed Application (**required**): [Music Playlist Explorer Deployed Site](htt
     - [x] Author
     - [ ] Songs
   - [x] The playlist grid view and playlist detail modal should update to display any changes (see Required Features, Criterion 1 & 2).
-  - [ ] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS:** For ease of grading, please show yourself:
-    - [ ] Editing all of a playlist's features (name, creator, AND songs)
-    - [ ] Editing some of a playlist's features (name, creator, OR songs)
+  - [x] **VIDEO WALKTHROUGH SPECIAL INSTRUCTIONS:** For ease of grading, please show yourself:
+    - [x] Editing all of a playlist's features (name, creator, AND songs)
+    - [x] Editing some of a playlist's features (name, creator, OR songs)
 
 - [x] **Delete Playlists**
   - [x] Add a delete button to each playlist tile within the grid view.
@@ -138,12 +138,21 @@ Deployed Application (**required**): [Music Playlist Explorer Deployed Site](htt
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-The topic in the lab absolutely enabled me to complete the assignment. I believe that the depth in teaching about DOM manipulation made the project much easier to complete. The features that I felt more unprepared to complete were any visual features that relied on CSS. I feel like the implementation of the modal in particular was difficult due to this.
+The topics in the lab absolutely enabled me to complete the assignment. I believe that the depth in teaching about DOM manipulation made the project much easier to complete. The features that I felt more unprepared to complete were any visual features that relied on CSS. I feel like the implementation of the modal in particular was difficult due to this.
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
 
 I would have spent more time creating a propper wireframe and design for the website. This would have made implementing new features easier as I would have an idea of what HTML elements would be needed.
 
+
+* Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
+
+I did not demo the project to the class.
+
 ### Open-source libraries used
 
-None
+- None
+
+### Shout out
+
+I recieved major help from and give major thanks to Jackson, Ben and Kevin who all provided very thorough feedback and help with the project, especially in design and logic.
