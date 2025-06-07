@@ -52,56 +52,6 @@ if (window.location.pathname.endsWith("index.html")) {
         );
     });
 
-    // Handles sorting
-    let listOfPlaylistCards = Array.from(document.getElementsByClassName("playlist-card"));
-    let sortingDropDown = document.getElementById("sort-select");
-    let sortedPlaylist;
-
-    sortingDropDown.addEventListener("change", () => {
-        const selection = sortingDropDown.value;
-
-        switch (selection) {
-            case "number-of-likes":
-                sortedPlaylist = listOfPlaylistCards.sort((a, b) => {
-                    let numberOfLikesA = a.getElementsByClassName("playlist-number-of-likes")[0];
-                    let numberOfLikesB = b.getElementsByClassName("playlist-number-of-likes")[0];
-
-                    return numberOfLikesA - numberOfLikesB;
-                });
-                break;
-
-            case "A-Z":
-                sortedPlaylist = listOfPlaylistCards.sort((a, b) => {
-
-                });
-                break;
-
-            case "chronologically":
-                sortedPlaylist = listOfPlaylistCards.sort((a, b) => {
-
-                });
-                break;
-        }
-
-        playlistCards.innerText = "";
-
-        listOfPlaylistCards.forEach((playlistCard) => {
-            title = playlistCard.getElementsByClassName.apply("playlist-title")[0];
-            author = playlistCard.getElementsByClassName.apply("playlist-author")[0];
-            art = playlistCard.getElementsByClassName.apply("playlist-cover-art")[0];
-            songs = [""];
-
-            playlistCards.insertAdjacentHTML(
-                "afterbegin",
-                `
-                    <section class="playlist-card" onclick="openModal({name: '${title}', creatorName: '${author}', imageUrl: '${art}', songs: ${songs}})">
-                        ${playlistCard.getHTML()}
-                    </section>
-                `
-            )
-        });
-    });
-
     // Handles logic for liking a playlist
     // Gathers all the like containers to process heart icons and number of likes in pairs
     const likesContainer = Array.from(document.getElementsByClassName("playlist-likes-container"));
